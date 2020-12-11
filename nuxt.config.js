@@ -13,12 +13,18 @@ export default {
       // { src: 'https://easytuan.gitee.io/node-elm-api/public/flexible.js' },
     ],
   },
-
+  env: {
+    // 环境变量
+    baseUrl:
+      process.env.NODE_ENV === 'production'
+        ? 'http://test.com'
+        : 'http://127.0.0.1:8000',
+  },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['element-ui/lib/theme-chalk/index.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -28,18 +34,39 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
   ],
-  loading: [],
+  loading: [
+    {
+      color: 'blue',
+      height: '5px',
+    },
+  ],
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy', // 添加proxy模块
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api': {
+      target: 'http://example.com', // /api开头=>就会往http://example.com 发送请求
+      changeOrigin: true,
+      // pathRewrite:{//任何 /api开头的 可以重写成 /
+      //   '^/api':'/'
+      // }
+    },
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     transpile: [/^element-ui/],
+    vendor: ['axios'],
+  },
+  server: {
+    port: 8000,
+    host: '127.0.0.1',
   },
 }
