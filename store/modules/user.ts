@@ -10,8 +10,8 @@ import store from '@/store'
 export interface IUserState {
   userInfo: any
 }
-@Module({ name: 'user', store, stateFactory: true })
-class User extends VuexModule implements IUserState {
+@Module({ stateFactory: true })
+export default class User extends VuexModule implements IUserState {
   token!: string
   menus: any[] | undefined
   public userInfo: any = null
@@ -28,4 +28,4 @@ class User extends VuexModule implements IUserState {
   }
 }
 
-export const UserModule = getModule(User)
+export const UserModule = () => getModule(User)

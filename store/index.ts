@@ -6,4 +6,5 @@ Vue.use(Vuex)
 export interface TRootState {
   user: IUserState
 }
-export default new Vuex.Store<TRootState>({})
+const store = () => new Vuex.Store<TRootState>({})
+export default store
