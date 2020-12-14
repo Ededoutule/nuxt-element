@@ -6,7 +6,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  layout: 'blog',
+  layout: 'default-white',
   loading: true,
 })
 export default class userInfo extends Vue {
@@ -19,7 +19,7 @@ export default class userInfo extends Vue {
 
   head() {
     return {
-      title: 'test',
+      title: 'userInfo',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

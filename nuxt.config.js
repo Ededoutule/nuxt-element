@@ -20,6 +20,8 @@ export default {
         ? 'http://test.com'
         : 'http://127.0.0.1:8000',
   },
+  mode: 'universal',
+  target: 'server',
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['element-ui/lib/theme-chalk/index.css'],
 
@@ -65,8 +67,8 @@ export default {
     transpile: [/^element-ui/],
     vendor: ['axios'],
   },
-  server: {
-    port: 8000,
-    host: '127.0.0.1',
-  },
+  // server: {
+  //   port: 8000,
+  //   host: '127.0.0.1',
+  // },
 }
