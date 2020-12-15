@@ -5,13 +5,6 @@
         <img class="cursor" src="https://www.bykol.com/img/logo.png" alt="" />
       </div>
       <nav class="nav-content">
-        <!-- <div class="nav-item action">首页</div>
-        <div class="nav-item">KOL研究院</div>
-        <div class="nav-item">KOL粉丝测评</div>
-        <div class="nav-item">KOL营销</div>
-        <div class="nav-item">搜索KOL</div>
-        <div class="nav-item">合作模式</div>
-        <div class="nav-item">关于我们</div> -->
         <div
           v-for="(item, index) in navObj"
           :key="index"
@@ -35,7 +28,7 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 
 @Component
 export default class NavHeader extends Vue {
-  // @Prop({ default: {}, type: Object }) styleObj: any
+  //   @Prop({ default: {}, type: Object }) styleObj: any
   clincIndex = 0
   navObj = [
     '首页',
@@ -50,6 +43,7 @@ export default class NavHeader extends Vue {
   @Emit()
   clickChangeNav(index: any) {
     this.clincIndex = index
+    console.log(index)
     return index
   }
 }

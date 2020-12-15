@@ -6,7 +6,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'keyword', constent: '这是一个个人项目' },
+      { name: 'keyword', content: '这是一个个人项目' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
@@ -20,13 +20,23 @@ export default {
         ? 'http://test.com'
         : 'http://127.0.0.1:8000',
   },
-  mode: 'universal',
+  // mode: 'universal',
   target: 'server',
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/public.scss',
+    '@/assets/reset.css',
+    // 'swiper/swiper-bundle.css',  (>= Swiper 6.x)
+    'swiper/dist/css/swiper.css', // (<= Swiper 5.x)
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
+  plugins: [
+    '@/plugins/element-ui',
+    '@/plugins/axios',
+    { src: '@/plugins/swiper.js', ssr: false },
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -67,8 +77,8 @@ export default {
     transpile: [/^element-ui/],
     vendor: ['axios'],
   },
-  // server: {
-  //   port: 8000,
-  //   host: '127.0.0.1',
-  // },
+  server: {
+    port: 8000,
+    host: '127.0.0.1',
+  },
 }
