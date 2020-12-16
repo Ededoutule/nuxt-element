@@ -8,14 +8,9 @@
         <swiper-slide class="tt">Slide 3</swiper-slide>
         <swiper-slide class="tt">Slide 4</swiper-slide>
         <swiper-slide class="tt">Slide 5</swiper-slide>
-        <div
-          slot="button-next"
-          class="swiper-button-next swiper-button-white"
-        ></div>
-        <div
-          slot="button-prev"
-          class="swiper-button-prev swiper-button-white"
-        ></div>
+        <div slot="button-next" class="swiper-button-next"></div>
+        <div slot="button-prev" class="swiper-button-prev"></div>
+
         <div slot="pagination" class="swiper-pagination"></div>
       </swiper>
     </main>
@@ -44,7 +39,7 @@ import CurdTemplate from '~/components/CurdTemplate.vue'
 })
 export default class Index extends Vue {
   swiperOption = {
-    effect: 'cube',
+    effect: 'coverflow',
     slidesPerView: 'auto',
     initialSlide: 0, // 默认第几张
     loop: true, // 循环
@@ -84,7 +79,7 @@ export default class Index extends Vue {
 .swiper-container {
   --swiper-theme-color: #ff6600;
   --swiper-pagination-color: #00ff33; /* 两种都可以 */
-  --swiper-navigation-color: #00ff33; /* 单独设置按钮颜色 */
+  --swiper-navigation-color: black; /* 单独设置按钮颜色 */
   --swiper-navigation-size: 30px; /* 设置按钮大小 */
 }
 </style>
