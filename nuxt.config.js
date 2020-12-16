@@ -27,15 +27,15 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/public.scss',
     '@/assets/reset.css',
-    // 'swiper/swiper-bundle.css',  (>= Swiper 6.x)
-    'swiper/dist/css/swiper.css', // (<= Swiper 5.x)
+    // 'swiper/swiper-bundle.css', // (>= Swiper 6.x)
+    'swiper/css/swiper.css', // (<= Swiper 5.x)
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/axios',
-    { src: '@/plugins/swiper.js', ssr: false },
+    { src: '@/plugins/swiper.js', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
