@@ -27,8 +27,8 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     '@/assets/public.scss',
     '@/assets/reset.css',
-    // 'swiper/swiper-bundle.css', // (>= Swiper 6.x)
-    'swiper/css/swiper.css', // (<= Swiper 5.x)
+    'swiper/swiper-bundle.css', // (>= Swiper 6.x)
+    // 'swiper/css/swiper.css', // (<= Swiper 5.x)
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
