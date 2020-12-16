@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavHeader @click-change-nav="clickChangeNav" />
+    <!-- <NavHeader @click-change-nav="clickChangeNav" /> -->
     <main>
       <swiper ref="mySwiper" :options="swiperOption">
         <swiper-slide class="tt">Slide 1</swiper-slide>
@@ -19,14 +19,15 @@
         <div slot="pagination" class="swiper-pagination"></div>
       </swiper>
     </main>
+    <CurdTemplate></CurdTemplate>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-
 import NavHeader from '@/components/NavHeader.vue'
+import CurdTemplate from '~/components/CurdTemplate.vue'
 @Component({
   // layout: 'header',
 

@@ -24,9 +24,11 @@
 // 系统会默认将 $ 作为方法名的前缀。
 
 export default function ({ $axios }) {
+  $axios.defaults.baseUrl = process.env.baseUrl
+  $axios.defaults.timeout = 40000
   $axios.interceptors.request.use(
     (request) => {
-      return request
+      return request.data
     },
     (err) => {
       return Promise.reject(err)
@@ -34,7 +36,7 @@ export default function ({ $axios }) {
   )
   $axios.interceptors.response.use(
     (response) => {
-      return response
+      return response.data
     },
     (err) => {
       return Promise.reject(err)
